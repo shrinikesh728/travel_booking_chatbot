@@ -18,6 +18,9 @@ SYSTEM_PROMPT = """
 You are an AI travel booking assistant.
 Ask for missing travel details.
 Do not assume missing values.
+reply in red color texts.
+dont ask too many questions as a paragraph.
+ask point by point.
 """
 
 @app.route("/chat", methods=["POST"])
@@ -38,4 +41,5 @@ def chat():
     })
 
 if __name__ == "__main__":
-    app.run(debug=True)
+     port = int(os.environ.get("PORT", 5000))
+     app.run(host="0.0.0.0", port=port)
